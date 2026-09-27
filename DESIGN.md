@@ -2,13 +2,13 @@
 
 ## Project description
 
-Build a proof of concept (PoC) for a scalable, reproducible LLM inference platform using Amazon EKS, Terraform, Helm, and vLLM. The platform will provide a standardized deployment workflow: one Terraform apply to provision infrastructure, followed by a Helm installation workflow to deploy the model-serving and observability components.
+Build a scalable, reproducible LLM inference platform using Amazon EKS, Terraform, Helm, and vLLM. The platform will provide a standardized deployment workflow: one Terraform apply to provision infrastructure, followed by a Helm installation workflow to deploy the model-serving and observability components.
 
-The solution will support a broad range of vLLM-compatible LLMs through configuration, subject to model architecture, licensing, GPU memory, and compute capacity. The PoC will validate this approach with one reference model and document how to deploy additional compatible models.
+The solution will support a broad range of vLLM-compatible LLMs through configuration, subject to model architecture, licensing, GPU memory, and compute capacity. The project will validate this approach with one reference model and document how to deploy additional compatible models.
 
 Prometheus, OpenTelemetry, and Grafana will provide visibility into service performance and infrastructure health. The project will define service-level indicators (SLIs), establish service-level objectives (SLOs), draft a proposed service-level agreement (SLA), and implement tested alerts and response procedures.
 
-The PoC will demonstrate measurable reliability and recovery. It does not promise failure-free operation or establish a contractual production SLA.
+The project will demonstrate measurable reliability and recovery. It does not promise failure-free operation or establish a contractual production SLA.
 
 ## Objectives
 
@@ -50,7 +50,7 @@ The PoC will demonstrate measurable reliability and recovery. It does not promis
 - Metrics for request success, time to first token, time between tokens, end-to-end latency, token throughput, queue depth, and resource saturation.
 - GPU metrics collected through an appropriate exporter.
 
-vLLM exposes native Prometheus metrics and supports OpenTelemetry tracing. Prometheus can scrape native metrics directly; the Collector is configured for the telemetry pipelines selected for the PoC. If retained, queryable traces are included, a trace backend must also be selected and deployed. Grafana alone does not provide trace storage.
+vLLM exposes native Prometheus metrics and supports OpenTelemetry tracing. Prometheus can scrape native metrics directly; the Collector is configured for the telemetry pipelines selected for the platform. If retained, queryable traces are included, a trace backend must also be selected and deployed. Grafana alone does not provide trace storage.
 
 ### Operational readiness
 
@@ -112,7 +112,7 @@ Alerts detect degradation and support response; scaling, capacity planning, and 
 
 ### Proposed SLA
 
-Draft the service commitment, measurement rules, exclusions, support responsibilities, and breach-handling process. Any production or contractual SLA requires stakeholder approval and longer-term operational evidence. A short PoC test validates behavior during its test window; it cannot establish long-term availability by itself.
+Draft the service commitment, measurement rules, exclusions, support responsibilities, and breach-handling process. Any production or contractual SLA requires stakeholder approval and longer-term operational evidence. A short validation test validates behavior during its test window; it cannot establish long-term availability by itself.
 
 ## Implementation waves
 
@@ -141,7 +141,7 @@ The Helm installation workflow may orchestrate multiple pinned charts and releas
 6. Demonstrate deployment in a clean environment and teardown of provisioned resources, with retained state or data exceptions explicitly documented.
 7. Deliver reusable code, configuration examples, benchmark results, operational documentation, and production-readiness recommendations.
 
-## PoC boundaries
+## Project boundaries
 
 The initial scope covers one AWS region, one reference model deployment, and a defined workload. Model training, fine-tuning, universal model compatibility, multi-region disaster recovery, advanced multi-tenancy, and contractual production guarantees are outside the initial scope.
 
